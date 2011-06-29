@@ -115,7 +115,8 @@ module Grape
       end
       
       def encode_txt(object)
-        object.respond_to?(:to_txt) ? object.to_txt : object.to_s
+        # object.respond_to?(:to_txt) ? object.to_txt : object.to_s
+        JSON.pretty_generate(object.as_json)
       end
     end
   end
