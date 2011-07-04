@@ -105,9 +105,10 @@ module Grape
       end
       
       def encode_json(object)
-        if object.respond_to? :serializable_hash
-          MultiJson.encode(object.serializable_hash)
-        elsif object.respond_to? :to_json
+        # if object.respond_to? :serializable_hash
+        #   MultiJson.encode(object.serializable_hash)
+        # elsif object.respond_to? :to_json
+        if object.respond_to? :to_json
           object.to_json
         else
           MultiJson.encode(object)
